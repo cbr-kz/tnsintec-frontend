@@ -88,8 +88,13 @@ h4 {
   }
 }
 
-#main > .container {
-  background: #fff;
+#main {
+  & > .container {
+    background: #fff;
+  }
+  .breadcrumb {
+    margin-top: 10px;
+  }
 }
 
 aside {
@@ -110,39 +115,44 @@ aside {
       font-size: 12px;
     }
     &.nav-double {
-       & > li > a {
-         display: table;
-         width: 100%;
-         min-height: 32px;
-         padding: 6px;
-         margin-bottom: 4px;
-         div {
-           display: table-cell;
-           vertical-align: middle;
-         }
-       }
+      li a {
+        min-height: 32px;
+        padding: 6px;
+        margin-bottom: 4px;
+      }
+      li.active > a {
+        color: #fff;
+        background-color: @tns-website-blue;
+      }
+      & > li > a {
+        display: table;
+        width: 100%;
+        div {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+      & > li ul {
+        margin-left: 15px;
+      }
       &.nav-categories {
-        & > li > a div {
-          &.icon {
-            width: 28px;
-          }
-          &.title {
-            padding-left: 7px;
-            width: auto;
-          }
+        .icon {
+          width: 28px;
+        }
+        .title {
+          padding-left: 7px;
+          width: auto;
         }
       }
       &.nav-manufacturers {
-         & > li > a div {
-           &.logo {
-             width: 40%;
-           }
-           &.title {
-             padding-left: 10px;
-             width: 60%;
-           }
-         }
-       }
+        .logo {
+            width: 40%;
+        }
+        .title {
+          padding-left: 10px;
+          width: 60%;
+        }
+      }
     }
   }
 }
@@ -317,8 +327,47 @@ dl.dl-icons {
   }
 }
 
+.thumbnails {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    margin: 0;
+    padding: 0;
+    &.image-additional {
+      float: left;
+      width: 31%;
+      margin-right: 9px;
+      &:nth-child(3n + 1) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
 .product-thumbnail {
   margin-bottom: 30px;
+}
+
+.product-grid {
+
+}
+
+.product-list {
+  position: relative;
+  .image-info {
+    float: left;
+    margin-right: 100px;
+    width: 150px;
+  }
+  .buttons {
+    .btn-block {
+      margin-top: 0;
+      display: inline-block;
+      margin-right: 10px;
+      width: auto;
+    }
+  }
 }
 
 .price {
